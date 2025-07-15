@@ -1,5 +1,5 @@
-import { Contact } from "../../types";
-import { Group } from "../../types";
+import { Contact } from "../types/";
+import { Group } from "../types";
 
 export class StorageService {
   private static instance: StorageService;
