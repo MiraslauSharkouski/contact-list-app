@@ -30,16 +30,19 @@
       <section class="contact-form">
         <form class="form contact-form__form" id="contact-form">
           <div class="form__group">
-            <label for="name" class="form__label">Имя</label>
-            <input type="text" id="name" class="form__input" required />
+            <label for="contact-name" class="form__label">Имя</label>
+            <input type="text" id="contact-name" class="form__input" required autocomplete="name" />
           </div>
           <div class="form__group">
-            <label for="phone" class="form__label">Телефон</label>
-            <input type="text" id="phone" class="form__input" placeholder="+7 (___) ___-__-__" required />
+            <label for="contact-phone" class="form__label">Телефон</label>
+            <input type="text" id="contact-phone" class="form__input" placeholder="+7 (___) ___-__-__" required
+              autocomplete="tel" />
           </div>
           <div class="form__group">
-            <label for="group" class="form__label">Группа</label>
-            <div class="custom-dropdown" id="group-select"></div>
+            <label for="contact-group" class="form__label">Группа</label>
+            <select id="contact-group" class="form__input" required>
+              <!-- Опции будут добавлены динамически -->
+            </select>
           </div>
           <button type="submit" class="btn btn--primary form__button">Добавить контакт</button>
         </form>
@@ -58,7 +61,9 @@
       <h2 class="group-manager__title">Управление группами</h2>
       <form id="group-form" class="form group-manager__form">
         <div class="form__group">
-          <input type="text" id="group-name" class="form__input" placeholder="Название группы" required />
+          <label for="group-name" class="form__label">Название группы</label>
+          <input type="text" id="group-name" class="form__input" placeholder="Название группы" required
+            autocomplete="off" />
         </div>
         <button type="submit" class="btn btn--primary">Добавить группу</button>
       </form>
@@ -85,9 +90,7 @@
     </div>
   </div>
 
-
-  <!-- Скрипты будут подключены позже -->
-  <script src="https://unpkg.com/imask "></script>
+  <script type="module" src="./src/main.ts"></script>
 </body>
 
 </html>

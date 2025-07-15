@@ -26,6 +26,7 @@ body {
 /* App */
 .app {
   max-width: 800px;
+  width: 100%;
   margin: 0 auto;
   padding: var(--gap-md);
 }
@@ -186,6 +187,21 @@ body {
   background-color: var(--color-danger);
 }
 
+/* Анимация появления */
+.toast.fade-in {
+  animation: fadeSlideUp 0.3s ease-out forwards;
+}
+
+/* Анимация исчезновения */
+.toast.fade-out {
+  animation: fadeSlideDown 0.3s ease-in forwards;
+  opacity: 0;
+}
+
+.toast.fade-out {
+  display: none;
+}
+
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
@@ -195,6 +211,23 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.contact-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+}
+
+.contact-card {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+  background: var(--color-white);
+  padding: var(--gap-md);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* Responsive */

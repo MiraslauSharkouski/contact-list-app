@@ -7,17 +7,20 @@ export class ToastService {
     this.container = document.getElementById(containerId)!;
   }
 
-  show(message: string, type: ToastType = "info"): void {
+  show(message: string, type: ToastType = "info") {
     const toast = document.createElement("div");
     toast.className = `toast toast--${type}`;
     toast.textContent = message;
     this.container.appendChild(toast);
 
+    // Анимация появления
+    requestAnimationFrame(() => {
+      toast.classList.add("fade-in");
+    });
+
     setTimeout(() => {
       toast.classList.add("fade-out");
-      toast.addEventListener("animationend", () => {
-        toast.remove();
-      });
+      toast.addEventListener("animationend", () => toast.remove());
     }, 3000);
   }
 }

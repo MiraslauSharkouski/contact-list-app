@@ -8,7 +8,7 @@ export function initGroupManager(
   initialGroups: string[],
   onGroupChange: () => void,
   showModal: (callback: () => void) => void,
-  toastService: ToastService // <-- Добавляем параметр
+  toastService: ToastService
 ) {
   groups = initialGroups;
 
@@ -24,12 +24,13 @@ export function initGroupManager(
       Validator.validateUniqueGroupName(groups, name);
       groups.push(name);
       StorageService.saveGroups(groups);
-      toastService.show(`Группа "${name}" добавлена`, "success"); // <-- Вызов через экземпляр
-      onGroupChange();
+      toastService.show(`Группа "${name}" добавлена`, "success");
+
+      onGroupChange(); // обновляем UI контактов
       renderGroups();
       form.reset();
     } catch (error: any) {
-      toastService.show(error.message, "error"); // <-- Здесь тоже
+      toastService.show(error.message, "error");
     }
   });
 
@@ -44,6 +45,7 @@ export function initGroupManager(
         <span class="group-item__name">${group}</span>
         <button class="group-item__remove" title="Удалить группу">&times;</button>
       `;
+
       li.querySelector(".group-item__remove")?.addEventListener("click", () => {
         showModal(() => {
           groups = groups.filter((g) => g !== group);
@@ -53,15 +55,18 @@ export function initGroupManager(
             `Группа "${group}" и все контакты удалены`,
             "success"
           );
+
           onGroupChange();
           renderGroups();
         });
       });
+
       list.appendChild(li);
     });
   }
 }
 
+// Экспортируем для тестирования или расширения
 export function renderGroups() {
-  // Можно вызвать для перерисовки, если нужно
+  // Можно вызвать отдельно, если нужно
 }
