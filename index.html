@@ -1,42 +1,76 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite + TS</title>
+  <title>Список контактов</title>
+
+  <!-- Подключаем шрифт Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Подключаем Ant Design Icons -->
+  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/antd/4.24.5/antd.min.css " />
+
+  <!-- Подключаем свои стили -->
+  <link rel="stylesheet" href="./src/assets/styles/variables.css">
+  <link rel="stylesheet" href="./src/assets/styles/main.css">
 </head>
 
-<body>
-  <form class="contact-form">
-    <h3 class="contact-form__title">Добавить контакт</h3>
+<body class="page">
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="header__title">Список контактов</h1>
+    </header>
 
-    <div class="contact-form__field contact-form__field--name">
-      <label for="name" class="contact-form__label">Имя</label>
-      <input type="text" id="name" class="contact-form__input contact-form__input--name" />
-    </div>
+    <!-- Main -->
+    <main class="main">
+      <!-- Форма добавления контакта -->
+      <section class="contact-form">
+        <form class="form contact-form__form" id="contact-form">
+          <div class="form__group">
+            <label for="name" class="form__label">Имя</label>
+            <input type="text" id="name" class="form__input" required />
+          </div>
+          <div class="form__group">
+            <label for="phone" class="form__label">Телефон</label>
+            <input type="text" id="phone" class="form__input" placeholder="+7 (___) ___-__-__" required />
+          </div>
+          <div class="form__group">
+            <label for="group" class="form__label">Группа</label>
+            <div class="custom-dropdown" id="group-select"></div>
+          </div>
+          <button type="submit" class="btn btn--primary form__button">Добавить контакт</button>
+        </form>
+      </section>
 
-    <div class="contact-form__field contact-form__field--phone">
-      <label for="phone" class="contact-form__label">Телефон</label>
-      <input type="text" id="phone" class="contact-form__input contact-form__input--phone" />
-    </div>
+      <!-- Список контактов -->
+      <section class="contact-list">
+        <ul class="contacts" id="contacts-list">
+          <!-- Контакты будут добавляться динамически -->
+        </ul>
+      </section>
+    </main>
 
-    <div class="contact-form__field contact-form__field--group">
-      <label class="contact-form__label">Группа</label>
-      <div class="contact-form__dropdown" data-dropdown></div>
-    </div>
+    <!-- Toast уведомления -->
+    <div class="toast-container" id="toast-container"></div>
 
-    <div class="contact-form__actions">
-      <button type="submit" class="contact-form__button">Сохранить</button>
+    <!-- Модальное окно подтверждения удаления группы -->
+    <div class="modal modal--confirm" id="confirm-modal">
+      <div class="modal__overlay"></div>
+      <div class="modal__content">
+        <p class="modal__text">Вы уверены, что хотите удалить эту группу? Это приведет к удалению всех контактов,
+          находящихся в этой группе.</p>
+        <div class="modal__actions">
+          <button class="btn btn--secondary" id="cancel-delete">Отменить</button>
+          <button class="btn btn--danger" id="confirm-delete">Подтвердить</button>
+        </div>
+      </div>
     </div>
-  </form>
-  <div id="contact-form-container"></div>
-  <div class="dropdown" data-dropdown>
-    <div class="dropdown__trigger">Выберите группу</div>
-    <div class="dropdown__menu"></div>
   </div>
-  <script type="module" src="/src/main.ts"></script>
+
+  <!-- Скрипты будут подключены позже -->
 </body>
 
 </html>
