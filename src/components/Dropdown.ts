@@ -2,7 +2,7 @@ type DropdownEvent = "change" | "open" | "close";
 
 export class CustomDropdown {
   private element: HTMLElement;
-  private items: { value: string; label: string }[];
+  private items!: { value: string; label: string }[];
   private selectedValue: string | null = null;
   private listeners: Record<DropdownEvent, (() => void)[]> = {
     change: [],
