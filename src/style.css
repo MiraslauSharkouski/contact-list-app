@@ -147,3 +147,63 @@
     transform: translateY(-20px);
   }
 }
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.contact-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.contact-list__item:hover {
+  transform: scale(1.01);
+}
+
+.contact-list__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-list__name {
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.contact-list__phone {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.contact-list__group {
+  color: var(--color-primary);
+  font-size: 0.85rem;
+}
+
+.contact-list__actions button {
+  margin-left: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.contact-list__actions .edit-btn {
+  background-color: #1890ff;
+  color: white;
+}
+
+.contact-list__actions .delete-btn {
+  background-color: #ff4d4f;
+  color: white;
+}

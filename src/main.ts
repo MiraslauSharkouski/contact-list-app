@@ -1,4 +1,5 @@
-import { ContactForm } from "./components/ContactForm";
+import { ContactForm } from "./components/ContactForm/ContactForm";
+import { ContactList } from "./components/ContactList/ContactList";
 
 const formContainer = document.getElementById("contact-form-container");
 
@@ -15,3 +16,32 @@ fetchGroups().then((groups) => {
     }
   });
 });
+
+const contactListContainer = document.getElementById("contact-list-container")!;
+
+// Пример данных
+const initialContacts: Contact[] = [
+  {
+    id: "1",
+    name: "Иван Иванов",
+    phone: "+7(999)123-45-67",
+    groupId: "friends",
+  },
+  {
+    id: "2",
+    name: "Мария Смирнова",
+    phone: "+7(999)987-65-43",
+    groupId: "work",
+  },
+];
+
+new ContactList(contactListContainer, {
+  onEdit: (contact) => {
+    console.log("Редактируем контакт:", contact);
+    // Здесь можно передать контакт в форму
+  },
+  onDelete: (contactId) => {
+    console.log("Удаляем контакт:", contactId);
+    // Здесь можно удалить из StorageService
+  },
+}).setContacts(initialContacts);
