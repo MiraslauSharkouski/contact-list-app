@@ -77,10 +77,6 @@ body {
   font-size: 1rem;
 }
 
-.form__button {
-  align-self: flex-start;
-}
-
 /* Buttons */
 .btn {
   padding: var(--gap-sm) var(--gap-md);
@@ -204,7 +200,6 @@ body {
 /* Responsive */
 @media (min-width: 768px) {
   .main {
-    flex-direction: row;
     gap: var(--gap-xl);
   }
 
@@ -215,4 +210,51 @@ body {
   .contact-list {
     flex: 1;
   }
+}
+
+.group-manager__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+}
+
+.group-manager {
+  background: var(--color-white);
+  padding: var(--gap-md);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-top: var(--gap-lg);
+}
+
+.group-manager__title {
+  font-size: 1.2rem;
+  margin-bottom: var(--gap-md);
+}
+
+.group-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+  margin-top: var(--gap-md);
+}
+
+.group-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  background: #f0f0f0;
+  padding: var(--gap-sm) var(--gap-md);
+  border-radius: var(--radius-sm);
+}
+
+.group-item__name {
+  font-weight: 500;
+}
+
+.group-item__remove {
+  background: none;
+  border: none;
+  color: var(--color-danger);
+  cursor: pointer;
 }

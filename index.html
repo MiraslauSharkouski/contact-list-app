@@ -53,6 +53,21 @@
       </section>
     </main>
 
+    <!-- Section: Управление группами -->
+    <section class="group-manager">
+      <h2 class="group-manager__title">Управление группами</h2>
+      <form id="group-form" class="form group-manager__form">
+        <div class="form__group">
+          <input type="text" id="group-name" class="form__input" placeholder="Название группы" required />
+        </div>
+        <button type="submit" class="btn btn--primary">Добавить группу</button>
+      </form>
+
+      <ul class="group-list" id="group-list">
+        <!-- Группы будут отрисовываться здесь -->
+      </ul>
+    </section>
+
     <!-- Toast уведомления -->
     <div class="toast-container" id="toast-container"></div>
 
@@ -69,6 +84,7 @@
       </div>
     </div>
   </div>
+
 
   <!-- Скрипты будут подключены позже -->
   <script src="https://unpkg.com/imask "></script>
