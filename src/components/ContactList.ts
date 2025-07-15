@@ -30,14 +30,14 @@ export class ContactList {
       const div = document.createElement("div");
       div.className = "contact-card";
       div.innerHTML = `
+        <em>${contact.groupId}</em>
         <div>
           <strong>${contact.name}</strong>
           <small>${contact.phone}</small>
-          <em>${contact.groupId}</em>
         </div>
         <div class="contact-card__actions">
-          <button class="btn btn--secondary btn--edit">Редактировать</button>
-          <button class="btn btn--danger btn--delete">Удалить</button>
+          <button class="btn btn--secondary btn--edit">Edit</button>
+          <button class="btn btn--danger btn--delete">Delete</button>
         </div>
       `;
 
@@ -48,7 +48,7 @@ export class ContactList {
       div.querySelector(".btn--delete")?.addEventListener("click", () => {
         this.contacts = this.contacts.filter((c) => c.id !== contact.id);
         StorageService.saveContacts(this.contacts);
-        this.toastService.show("Контакт удалён!", "success");
+        this.toastService.show("Contact deleted!", "success");
         this.render();
       });
 

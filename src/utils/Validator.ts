@@ -6,13 +6,13 @@ export class Validator {
       (contact) => contact.phone === newContact.phone
     );
     if (exists) {
-      throw new Error("Контакт с таким номером телефона уже существует.");
+      throw new Error("A contact with this phone number already exists.");
     }
   }
 
   static validateUniqueGroupName(groups: string[], groupName: string): void {
     if (groups.includes(groupName)) {
-      throw new Error("Группа с таким именем уже существует.");
+      throw new Error("A group with this name already exists.");
     }
   }
 }

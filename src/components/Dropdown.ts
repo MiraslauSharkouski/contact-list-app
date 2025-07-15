@@ -15,23 +15,19 @@ export class CustomDropdown {
     this.init();
   }
 
-  // Публичный метод подписки на события
   bind(event: DropdownEvent, handler: () => void): void {
     this.listeners[event].push(handler);
   }
 
-  // Публичное свойство: текущее значение
   get value(): string | null {
     return this.selectedValue;
   }
 
-  // Установка элементов дропдауна
   set dataItems(items: { value: string; label: string }[]) {
     this.items = items;
     this.renderOptions();
   }
 
-  // Публичный метод: установка значения
   setValue(value: string): void {
     this.selectedValue = value;
     const label =
@@ -39,7 +35,6 @@ export class CustomDropdown {
     this.element.querySelector(".dropdown-trigger")!.textContent = label;
   }
 
-  // Публичный метод: закрытие дропдауна
   close(): void {
     this.element.classList.remove("dropdown--open");
     this.trigger("close");

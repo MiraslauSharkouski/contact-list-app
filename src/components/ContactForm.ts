@@ -67,12 +67,12 @@ export class ContactForm {
 
         Validator.validateUniquePhone(others, updatedContact as Contact);
         this.contacts[contactIndex] = updatedContact as Contact;
-        this.toastService.show("Контакт успешно изменён!", "success");
+        this.toastService.show("Contact successfully changed!", "success");
       } else {
         const newContact = new Contact(name, phone, groupId);
         Validator.validateUniquePhone(this.contacts, newContact);
         this.contacts.push(newContact);
-        this.toastService.show("Контакт успешно добавлен!", "success");
+        this.toastService.show("Contact added successfully!", "success");
       }
 
       StorageService.saveContacts(this.contacts);

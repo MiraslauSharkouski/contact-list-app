@@ -15,7 +15,7 @@ export class StorageService {
 
   static getGroups(): string[] {
     const data = localStorage.getItem(GROUPS_STORAGE_KEY);
-    return data ? JSON.parse(data) : ["Работа", "Семья", "Друзья"];
+    return data ? JSON.parse(data) : ["Work", "Family", "Friends"];
   }
 
   static saveGroups(groups: string[]): void {

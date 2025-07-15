@@ -6,14 +6,11 @@ import { initGroupManager } from "./components/GroupManager";
 import type { Contact } from "./models/Contact";
 import IMask from "imask";
 
-// Инициализация тостера
 const toastService = new ToastService("toast-container");
 
-// Загрузка данных из localStorage
 let contacts = StorageService.getContacts();
 let groups = StorageService.getGroups();
 
-// Инициализация формы контакта
 const contactForm = new ContactForm(
   "#contact-form",
   "#contact-group",
@@ -21,10 +18,8 @@ const contactForm = new ContactForm(
   updateApp
 );
 
-// Инициализация списка контактов
 const contactList = new ContactList("#contacts-list", toastService, handleEdit);
 
-// Инициализация менеджера групп
 initGroupManager(
   groups,
   updateGroupsInFormAndList,
@@ -32,10 +27,8 @@ initGroupManager(
   toastService
 );
 
-// Обновление состояния приложения
 updateApp();
 
-// Функция обновления данных
 function updateApp() {
   contacts = StorageService.getContacts();
   groups = StorageService.getGroups();
@@ -46,18 +39,15 @@ function updateApp() {
   updateGroupSelect(groups);
 }
 
-// Обновление UI групп
 function updateGroupsInFormAndList() {
   const updatedGroups = StorageService.getGroups();
   contactForm.setGroups(updatedGroups);
 }
 
-// Редактирование контакта
 function handleEdit(contact: Contact) {
   contactForm.editContact(contact);
 }
 
-// Модальное окно подтверждения удаления
 const modal = document.getElementById("confirm-modal")!;
 const confirmDeleteBtn = document.getElementById("confirm-delete")!;
 const cancelDeleteBtn = document.getElementById("cancel-delete")!;
@@ -78,22 +68,17 @@ cancelDeleteBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-// Обновление селекта групп
-// const groupSelect = document.getElementById(
-//   "contact-group"
-// ) as HTMLSelectElement;
-
 export function updateGroupSelect(groups: string[]) {
   const groupSelect = document.getElementById(
     "contact-group"
   ) as HTMLSelectElement | null;
 
   if (!groupSelect) {
-    console.warn("Селект групп не найден");
+    console.warn("Select groups not found");
     return;
   }
 
-  groupSelect.innerHTML = ""; // очищаем старые опции
+  groupSelect.innerHTML = "";
 
   groups.forEach((group) => {
     const option = document.createElement("option");
@@ -103,13 +88,10 @@ export function updateGroupSelect(groups: string[]) {
   });
 }
 
-// Загружаем группы из localStorage
 const initialGroups = StorageService.getGroups();
 
-// Обновляем селект только после инициализации
 updateGroupSelect(initialGroups);
 
-// Инициализация маски телефона
 const phoneInput = document.getElementById("contact-phone") as HTMLInputElement;
 if (phoneInput) {
   IMask(phoneInput, {

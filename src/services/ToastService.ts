@@ -13,7 +13,6 @@ export class ToastService {
     toast.textContent = message;
     this.container.appendChild(toast);
 
-    // Анимация появления
     requestAnimationFrame(() => {
       toast.classList.add("fade-in");
     });

@@ -4,87 +4,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Список контактов</title>
-
-  <!-- Подключаем шрифт Montserrat -->
+  <title>Contact List</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Подключаем Ant Design Icons -->
   <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/antd/4.24.5/antd.min.css " />
-
-  <!-- Подключаем свои стили -->
   <link rel="stylesheet" href="./src/assets/styles/variables.css">
   <link rel="stylesheet" href="./src/assets/styles/main.css">
 </head>
 
 <body class="page">
   <div class="app">
-    <!-- Header -->
     <header class="header">
-      <h1 class="header__title">Список контактов</h1>
+      <h1 class="header__title">Contact List</h1>
     </header>
 
-    <!-- Main -->
     <main class="main">
-      <!-- Форма добавления контакта -->
       <section class="contact-form">
         <form class="form contact-form__form" id="contact-form">
           <div class="form__group">
-            <label for="contact-name" class="form__label">Имя</label>
+            <label for="contact-name" class="form__label">Name</label>
             <input type="text" id="contact-name" class="form__input" required autocomplete="name" />
           </div>
           <div class="form__group">
-            <label for="contact-phone" class="form__label">Телефон</label>
+            <label for="contact-phone" class="form__label">Phone</label>
             <input type="text" id="contact-phone" class="form__input" placeholder="+7 (___) ___-__-__" required
               autocomplete="tel" />
           </div>
           <div class="form__group">
-            <label for="contact-group" class="form__label">Группа</label>
+            <label for="contact-group" class="form__label">Group</label>
             <select id="contact-group" class="form__input" required>
-              <!-- Опции будут добавлены динамически -->
+
             </select>
           </div>
-          <button type="submit" class="btn btn--primary form__button">Добавить контакт</button>
+          <button type="submit" class="btn btn--primary form__button">Add contact</button>
         </form>
       </section>
 
-      <!-- Список контактов -->
+
       <section class="contact-list">
         <ul class="contacts" id="contacts-list">
-          <!-- Контакты будут добавляться динамически -->
+
         </ul>
       </section>
     </main>
 
-    <!-- Section: Управление группами -->
+
     <section class="group-manager">
-      <h2 class="group-manager__title">Управление группами</h2>
+      <h2 class="group-manager__title">Managing groups</h2>
       <form id="group-form" class="form group-manager__form">
         <div class="form__group">
-          <label for="group-name" class="form__label">Название группы</label>
-          <input type="text" id="group-name" class="form__input" placeholder="Название группы" required
-            autocomplete="off" />
+          <label for="group-name" class="form__label">Group name</label>
+          <input type="text" id="group-name" class="form__input" placeholder="Group name" required autocomplete="off" />
         </div>
-        <button type="submit" class="btn btn--primary">Добавить группу</button>
+        <button type="submit" class="btn btn--primary">Add group</button>
       </form>
 
       <ul class="group-list" id="group-list">
-        <!-- Группы будут отрисовываться здесь -->
+
       </ul>
     </section>
 
-    <!-- Toast уведомления -->
+
     <div class="toast-container" id="toast-container"></div>
 
-    <!-- Модальное окно подтверждения удаления группы -->
+
     <div class="modal modal--confirm" id="confirm-modal">
       <div class="modal__overlay"></div>
       <div class="modal__content">
-        <p class="modal__text">Вы уверены, что хотите удалить эту группу? Это приведет к удалению всех контактов,
-          находящихся в этой группе.</p>
+        <p class="modal__text">Are you sure you want to delete this group? This will delete all contacts in this group.
+        </p>
         <div class="modal__actions">
-          <button class="btn btn--secondary" id="cancel-delete">Отменить</button>
-          <button class="btn btn--danger" id="confirm-delete">Подтвердить</button>
+          <button class="btn btn--secondary" id="cancel-delete">Cancel</button>
+          <button class="btn btn--danger" id="confirm-delete">Confirm</button>
         </div>
       </div>
     </div>
