@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/antd/4.24.5/antd.min.css " />
+  <script type="module" crossorigin src="/contact-list-app/assets/index-BxZ5QJLe.js"></script>
+  <link rel="stylesheet" crossorigin href="/contact-list-app/assets/index-D1FtQZpP.css">
+</head>
+
+<body class="page">
+  <div class="app">
+    <header class="header">
+      <h1 class="header__title">Contact List</h1>
+    </header>
+
+    <main class="main">
+      <section class="contact-form">
+        <form class="form contact-form__form" id="contact-form">
+          <div class="form__group">
+            <label for="contact-name" class="form__label">Name</label>
+            <input type="text" id="contact-name" class="form__input" required autocomplete="name" />
+          </div>
+          <div class="form__group">
+            <label for="contact-phone" class="form__label">Phone</label>
+            <input type="text" id="contact-phone" class="form__input" placeholder="+7 (___) ___-__-__" required
+              autocomplete="tel" />
+          </div>
+          <div class="form__group">
+            <label for="contact-group" class="form__label">Group</label>
+            <select id="contact-group" class="form__input" required>
+
+            </select>
+          </div>
+          <button type="submit" class="btn btn--primary form__button">Add contact</button>
+        </form>
+      </section>
+
+
+      <section class="contact-list">
+        <ul class="contacts" id="contacts-list">
+
+        </ul>
+      </section>
+    </main>
+
+
+    <section class="group-manager">
+      <h2 class="group-manager__title">Managing groups</h2>
+      <form id="group-form" class="form group-manager__form">
+        <div class="form__group">
+          <label for="group-name" class="form__label">Group name</label>
+          <input type="text" id="group-name" class="form__input" placeholder="Group name" required autocomplete="off" />
+        </div>
+        <button type="submit" class="btn btn--primary">Add group</button>
+      </form>
+
+      <ul class="group-list" id="group-list">
+
+      </ul>
+    </section>
+
+
+    <div class="toast-container" id="toast-container"></div>
+
+
+    <div class="modal modal--confirm" id="confirm-modal">
+      <div class="modal__overlay"></div>
+      <div class="modal__content">
+        <p class="modal__text">Are you sure you want to delete this group? This will delete all contacts in this group.
+        </p>
+        <div class="modal__actions">
+          <button class="btn btn--secondary" id="cancel-delete">Cancel</button>
+          <button class="btn btn--danger" id="confirm-delete">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
